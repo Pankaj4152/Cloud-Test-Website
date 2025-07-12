@@ -6,7 +6,7 @@ substitutions:
   _REPO: test-websites-pankaj
   _IMAGE: payment-status-checking
   _SERVICE_NAME: studysphere@api-gateway-463207.iam.gserviceaccount.com
-
+  
 steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: [
