@@ -1,0 +1,29 @@
+substitutions:
+  _REGION: asia-south2
+  _PROJECT_ID: api-gateway-463207
+  _REPO: test-websites-pankaj
+  _IMAGE: payment-status-checking
+  _SERVICE_NAME: payment-status-checking
+
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: [
+    'build',
+    '-t', '$_REGION-docker.pkg.dev/$_PROJECT_ID/$_REPO/$_IMAGE:latest',
+    '.'
+  ]
+
+- name: 'gcr.io/cloud-builders/docker'
+  args: [
+    'push',
+    '$_REGION-docker.pkg.dev/$_PROJECT_ID/$_REPO/$_IMAGE:latest'
+  ]
+
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: 'gcloud'
+  args: [
+    'run', 'deploy', '$_SERVICE_NAME',
+    '--image', '$_REGION-docker.pkg.dev/$_PROJECT_ID/$_REPO/$_IMAGE:latest',
+    '--region', '$_REGION',
+    '--allow-unauthenticated'
+  ]
