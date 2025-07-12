@@ -6,7 +6,7 @@ substitutions:
   _REPO: test-websites-pankaj
   _IMAGE: payment-status-checking
   _SERVICE_NAME: studysphere@api-gateway-463207.iam.gserviceaccount.com
-  
+
 steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: [
@@ -24,7 +24,7 @@ steps:
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: 'gcloud'
   args: [
-    'run', 'deploy', 'studysphere@api-gateway-463207.iam.gserviceaccount.com',
+    'run', 'deploy', 'studysphere',
     '--image', '$_REGION-docker.pkg.dev/$_PROJECT_ID/$_REPO/$_IMAGE:latest',
     '--region', '$_REGION',
     '--allow-unauthenticated'
