@@ -1,3 +1,5 @@
+options:
+  defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
 substitutions:
   _REGION: asia-south2
   _PROJECT_ID: api-gateway-463207
