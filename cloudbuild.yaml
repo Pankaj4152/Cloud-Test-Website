@@ -24,7 +24,7 @@ steps:
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: 'gcloud'
   args: [
-    'run', 'deploy', '$_SERVICE_NAME',
+    'run', 'deploy', 'studysphere@api-gateway-463207.iam.gserviceaccount.com',
     '--image', '$_REGION-docker.pkg.dev/$_PROJECT_ID/$_REPO/$_IMAGE:latest',
     '--region', '$_REGION',
     '--allow-unauthenticated'
